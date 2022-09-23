@@ -1,24 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Holi from "./components/Form";
+import Products from "./components/Products";
+import { db } from "./firebase";
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
+  const [fecha, setFecha] = useState("");
+  const [responsable, setResponsable] = useState("");
+  const [tienda, setTienda] = useState("");
+
+  const [loader, setLoader] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoader(true);
+
+    db.collection("contacts")
+      .add({
+        fecha: fecha,
+        responsable: responsable,
+        tienda: tienda,
+      })
+      .then(() => {
+        setLoader(false);
+        alert("Your message has been submitted👍");
+      })
+      .catch((error) => {
+        alert(error.message);
+        setLoader(false);
+      });
+
+    setFecha("");
+    setResponsable("");
+    setTienda("");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Container className="container">
+      <div className="app">
+        <Holi
+          fecha={fecha}
+          responsable={responsable}
+          tienda={tienda}
+          setFecha={setFecha}
+          setResponsable={setResponsable}
+          setTienda={setTienda}
+          handleSubmit={handleSubmit}
+        />
+
+        <Products />
+
+        <Button
+          type="submit"
+          style={{ background: loader ? "#ccc" : "rgb(2,2,110)" }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Enviar
+        </Button>
+      </div>
+    </Container>
   );
 }
 

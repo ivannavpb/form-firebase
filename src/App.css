@@ -1,38 +1,69 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,700;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #fff16e !important;
+  font-family: "Karla", sans-serif !important;
+  min-height: 100vh !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Contact.js */
+.container {
+  width: 90% !important;
+  height: 90% !important;
+  border-radius: 10px !important;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px !important;
+  background: #fff !important;
+  margin-top: 50px !important;
+  margin-bottom: 50px !important;
+  padding: 15px !important;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+Form {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
 }
 
-.App-link {
-  color: #61dafb;
+Form > h1 {
+  justify-content: center !important;
+  display: flex !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+Form.Label {
+  font-weight: 700 !important;
+}
+
+Form > button {
+  padding: 20px !important;
+  border: none !important;
+  background-color: rgb(2, 2, 110) !important;
+  font-weight: 500 !important;
+  font-size: 20px !important;
+  border-radius: 3px !important;
+  color: #fff !important;
+  cursor: pointer !important;
+  transition: 0.2s ease-in-out !important;
+  margin-top: 10px !important;
+}
+
+Form > button:hover {
+  background-color: rgb(0, 0, 196) !important;
+}
+
+Form > h2 {
+  background-color: black !important;
+  color: #fff16e !important;
+  text-align: center !important;
+  border-radius: 4px !important;
+  font-size: 20px !important;
+  height: 32px !important;
 }
